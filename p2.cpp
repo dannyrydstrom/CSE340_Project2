@@ -15,18 +15,23 @@ private:
 		int line;
 		string token_type_string;
 		string token_value;
-		node *next = NULL;
+		node *next;
 		node(int line, string token_type_string, string token_value) {
 			this->token_type_string = token_type_string;
 			this->line = line;
 			this->token_value = token_value;
+			next = NULL;
 		}
 		void print() {
 			cout << line << " " << token_type_string << " " << token_value;
 		}
 	};
-	node *root = NULL;
+	node *root;
 public:
+	list()
+	{
+		root = NULL;
+	}
 	void insert(int line, string token_type_string, string token_value) {
 		node *newNode = new node(line, token_type_string, token_value);
 		if (root == NULL) {
@@ -68,6 +73,6 @@ int main() {
 			}
 		}
 	}
-	linkedlist.print();
+	linkedlist->print();
 	return 0;
 }
